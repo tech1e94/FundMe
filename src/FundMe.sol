@@ -34,10 +34,7 @@ contract FundMe {
     function fund() public payable {
         // minimum amout that must to be send
         // firstArgument.libraryFunction(restOfArguments); - this how to use functions frmo lib
-        require(
-            msg.value.ETHConverter(s_priceFeed) >= MINIMUM_USD,
-            "shown when transaction reverts"
-        ); // 1 ETH = 10**18 wei   // require - if this condition doest satisfy then function will revert and return remaining gas
+        require(msg.value.ETHConverter(s_priceFeed) >= MINIMUM_USD, "shown when transaction reverts"); // 1 ETH = 10**18 wei   // require - if this condition doest satisfy then function will revert and return remaining gas
         s_funders.push(msg.sender); // also if some values are changed or some operation is performed then tahat also will be reverted
         s_addressToMoney[msg.sender] += msg.value; // mappping from address to money value
     }
@@ -87,9 +84,7 @@ contract FundMe {
         // require(success, "Send failed");
 
         // call - (doesnt reverts) returns bool(like send) - doesnt have gas limit
-        (bool callSuccess, ) = payable(msg.sender).call{
-            value: address(this).balance
-        }("");
+        (bool callSuccess,) = payable(msg.sender).call{value: address(this).balance}("");
         require(callSuccess, "Call failed");
     }
 
@@ -118,9 +113,7 @@ contract FundMe {
         return s_funders[index];
     }
 
-    function getAmountFundedByAddress(
-        address funder
-    ) external view returns (uint256) {
+    function getAmountFundedByAddress(address funder) external view returns (uint256) {
         return s_addressToMoney[funder];
     }
 

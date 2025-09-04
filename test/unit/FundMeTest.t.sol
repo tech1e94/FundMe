@@ -108,9 +108,6 @@ contract FundMeTest is Test {
         console.log((gasStart - gasUsed) * tx.gasprice);
 
         assertEq(address(fundMe).balance, 0);
-        assertEq(
-            startingOwnerBalance + startFundMeBalance,
-            fundMe.getOwner().balance
-        );
+        assertEq(startingOwnerBalance + startFundMeBalance, fundMe.getOwner().balance);
     }
 }

@@ -6,7 +6,7 @@ import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interf
 library PriceConverter {
     function getPrice(AggregatorV3Interface priceFeed) internal view returns (uint256) {
         // every function in library must be "internal"
-        (, int256 price, , , ) = priceFeed.latestRoundData(); // price of ETH in terms of USD
+        (, int256 price,,,) = priceFeed.latestRoundData(); // price of ETH in terms of USD
         return uint256(price * 1e10); // msg.value has 18 0s so we need to make price of same
     }
 
