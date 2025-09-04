@@ -1,8 +1,3 @@
-Got it ✅ — your current **README** is just the Foundry template, but you want it specifically for your **FundMe contract**. I’ll draft a clean, professional README.md that explains what the project does, how to use it, and how people can contribute.
-
-Here’s a ready-to-use README you can put in your repo:
-
----
 
 # FundMe 💰
 
